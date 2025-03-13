@@ -1,0 +1,13 @@
+.seedInputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.seedInput {
+  text-wrap: wrap;
+  height: 50%;
+}
+
+.seedInputButton {
+  width: 10%;
+}

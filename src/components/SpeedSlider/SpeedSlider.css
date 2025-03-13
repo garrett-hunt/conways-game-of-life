@@ -1,0 +1,8 @@
+.sliderContainer {
+  height: 5rem;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
