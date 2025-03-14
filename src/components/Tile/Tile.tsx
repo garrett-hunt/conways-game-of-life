@@ -1,21 +1,24 @@
-import { Grid } from "../../Pages/Homepage/Homepage";
 import "./Tile.css";
 
 interface TileProps {
   value: number;
   row: number;
   col: number;
-  grid: Grid;
   setGrid: React.Dispatch<React.SetStateAction<number[][]>>;
 }
 
-const Tile = ({ value, row, col, grid, setGrid }: TileProps) => {
+const Tile = ({ value, row, col, setGrid }: TileProps) => {
   const handleClick = () => {
-    const newGrid = [...grid];
-    newGrid[row] = [...newGrid[row]];
-    newGrid[row][col] = value ? 0 : 1;
-
-    setGrid(newGrid);
+    setGrid((prevGrid) => {
+      const newGrid = prevGrid.map((rowArr, rowIndex) =>
+        rowIndex === row
+          ? rowArr.map((cell, colIndex) =>
+              colIndex === col ? (cell ? 0 : 1) : cell
+            )
+          : rowArr
+      );
+      return newGrid;
+    });
   };
 
   return (

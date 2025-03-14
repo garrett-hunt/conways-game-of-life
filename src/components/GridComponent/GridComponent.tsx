@@ -109,8 +109,12 @@ const GridComponent = ({
 
       setStats((stats) => ({
         ...stats,
-        generations: (stats.generations += 1),
+        generations: stats.generations + 1,
       }));
+
+      if (getLiveCellCount(newGrid) === 0) {
+        setGameState("paused");
+      }
 
       return newGrid;
     });
@@ -134,7 +138,6 @@ const GridComponent = ({
               row={rowIndex}
               col={itemIndex}
               setGrid={setGrid}
-              grid={grid}
             />
           ))}
         </div>
