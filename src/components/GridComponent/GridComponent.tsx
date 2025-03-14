@@ -37,18 +37,13 @@ const calculateFate = (
   row: number,
   col: number
 ) => {
-  if (
-    cellValue &&
-    (liveNeighborsCount(grid, row, col) < 2 ||
-      liveNeighborsCount(grid, row, col) > 3)
-  ) {
+  const liveNeighbors = liveNeighborsCount(grid, row, col);
+  if (cellValue && (liveNeighbors < 2 || liveNeighbors > 3)) {
     return 0;
   }
-
-  if (!cellValue && liveNeighborsCount(grid, row, col) === 3) {
+  if (!cellValue && liveNeighbors === 3) {
     return 1;
   }
-
   return cellValue;
 };
 

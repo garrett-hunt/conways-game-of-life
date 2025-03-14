@@ -1,6 +1,8 @@
+import { memo } from "react";
 import "./RulesList.css";
 
-const RulesList = () => {
+const RulesList = memo(() => {
+  console.log("mounted");
   return (
     <div className="rulesList">
       <div>Rules of Conway's Game of Life</div>
@@ -14,6 +16,6 @@ const RulesList = () => {
       </ul>
     </div>
   );
-};
+});
 
 export default RulesList;
